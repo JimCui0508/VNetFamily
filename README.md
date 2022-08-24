@@ -1,137 +1,54 @@
-# VNetFamily-Tensorflow
-> There are some VNet Variant Networks that implement with tensorflow
+# 3DUNet and VNet - Keras
+
+*GMine Cooperation** - *"3D Convolutional Neural Network for colon Segmentation"*
+
+Gmine's intestinal segmentation project, which may be used for tumor prediction.
+
+The dataset used is obtained from Academician Wang of Friendship Hospital.
+
+At present, the project has completed the development and debugging of 3DUNet and 3DVNet model, and the model performance is shown in the diagram in the project.
+About 1000 intestinal CT data are used in the project. 
+
+Computational conformal geometry algorithm is used to annotate the data, and then supervised model training is used to solve the problem of image annotation difficulty in medical image processing, and its effect is proved to be better than the traditional geometric segmentation method.
+
+This project was run in ubuntu18.04, NVIDIA GTX 2080Ti environment
 
 ## Requirements
-* Tensorflow-gpu == 1.8
-* Python == 3.5.5
+* Tensorflow-gpu == 1.14.0
+* Python == 3.7.3
+* conda == 4.11.0
+* keras == 3.5.5
+* numpy == 1.18.1
+* scikit-image == 0.17.2
+* simpleitk == 2.1.1.2
+* cudatoolkit == 10.1.243
+* cudnn == 7.6.5
+* cupy-cuda101 == 9.6.0(if gpu pre-processing possible)
 
-## VNet
-you can see the ***paper***, please refer to this [link](http://campar.in.tum.de/pub/milletari2016Vnet/milletari2016Vnet.pdf)
-### What is the VNet
-![senet](./assests/3dVNet.png)
 
-## AttentionGatedVNet
-you can see the ***paper***, please refer to this [link](https://openreview.net/pdf?id=BJtn7-3sM)
-### What is the AttentionGate
-![senet](./assests/AGModel.PNG)
-### What is the AttentionGateVNet
-![senet](./assests/AGVnet.PNG)
 
-## DualAttentionVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1809.02983)
-### What is the DualAttention
-![senet](./assests/dual_attention_model.PNG)
-### What is the DualAttentionNet
-![senet](./assests/dual_attention_net.PNG)
+## Model Results
+### 3D U-Net Architecture loss:
 
-## FusionVNet
-you can see the ***paper***, please refer to this [link](https://hal-univ-bourgogne.archives-ouvertes.fr/hal-02060222/document)
-### What is the FusionVNet
-![senet](./assests/FusionVnet.bmp)
+![](unetloss.png)
 
-## NestedVNet(VNet++)
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1807.10165)
-### What is the VNet++
-![senet](./assests/Vnet++.PNG)
 
-## SEVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1709.01507)
-### What is the SEModel
-![senet](./assests/SEModel.png)
-### What is the SEVNet
-![senet](./assests/SEVNet.png)
+#### We achieved a dice score of 0.90 with this architecture.
+#### This is our second best model.
 
-## SCSEVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1803.02579)
-### What is the SCSEModel
-![senet](./assests/scSE.PNG)
-### What is the SCSEVNet
-![senet](./assests/scSEVnet.png)
+### Results
+![](unetdice.PNG)
 
-## GAVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1907.12930)
-### What is the GrideAttentionModel
-![senet](./assests/GrideAttention.png)
-### What is the GAVNet
-![senet](./assests/GAVnet.png)
+### 3D V-Net Architecture loss:
 
-## NonLocalVNet
-you can see the ***paper***, please refer to this [link](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Non-Local_Neural_Networks_CVPR_2018_paper.pdf)
-### What is the NonLocalBlock
-![senet](./assests/NonLocal.PNG)
-### What is the NonLocalVNet
-![senet](./assests/NonLocalVnet.PNG)
+![](vnetloss.png)
 
-## PEVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1906.04649)
-### What is the PEModel
-![senet](./assests/PEmodel.png)
-### What is the PEVNet
-![senet](./assests/PEVnet.png)
+#### We achieved a dice score of 0.89 with this, but with high resolution and reconstruction performance on z axis .
 
-## ETVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1907.10936)
-### What is the ETModel
-![senet](./assests/ETModule.PNG)
-### What is the ETVNet
-![senet](./assests/ETVNet.PNG)
+### Results 
+![](vnetdice.PNG)
 
-## MutilTask-VNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/1902.04099)
-### What is the MutilTask-VNet
-![senet](./assests/mutil-task-Vnet.bmp)
-
-## MutilDepthFusion-VNet
-you can see the ***paper***, please refer to this [link](https://www.researchgate.net/publication/331145628_Multi-Depth_Fusion_Network_for_Whole-Heart_CT_Image_Segmentation)
-### What is the MutilDepthFusion-VNet
-![senet](./assests/mutil_depthfusion.bmp)
-### What is the MutilDepthFusion
-![senet](./assests/mutil_depth_deepVNet.bmp)
-
-## VNettripleplus
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/2004.08790)
-### What is the VNettripleplus
-![senet](./assests/mutil_depthfusion.bmp)
-### What is the full_scale skip conncetion
-![senet](./assests/FullScaleSkipConncetion.bmp)
-
-## MultiResVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/2006.00414)
-### What is the MultiResModule
-![senet](./assests/multiResmodule.png)
-### What is the MultiResModule
-![senet](./assests/Res-Path.png)
-### What is the MultiResVNet
-![senet](./assests/multiResVnet.png)
-
-## DCVNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/2006.00414)
-### What is the Dual-ChannelModule
-![senet](./assests/dualchannelmodule.png)
-### What is the MultiResModule
-![senet](./assests/Res-Path.png)
-### What is the DCVNet
-![senet](./assests/DCVNet.png)
-
-## V2-Net
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/2005.09007)
-### What is the ResUModule
-![senet](./assests/ResUModule.png)
-### What is the V2-Net
-![senet](./assests/V2-Net.png)
-
-## MA-UNet
-you can see the ***paper***, please refer to this [link](https://arxiv.org/abs/2012.10952)
-### What is the Spatial Attention and Channel Attention
-![senet](./assests/SACA.png)
-### What is the MA-UNet
-![senet](./assests/MA-UNet.png)
-
-## Author
-junqiangchen
-
-## Contact
-* https://github.com/junqiangchen
-* email: 1207173174@qq.com
-* WeChat Public number: 最新医学影像技术
-* ![senet](./assests/wetchatnumber.jpg)
+# What I Learned & detailed presentation
+* Presentation [PPT](3DU-net segmentation(1).pptx)
+* Automatic pre-processing algorithm Medical Images in the NIfTI format with simpleitk, scikit-image.
+* Successfully adapted [VNet](https://arxiv.org/abs/1606.04797 "V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation") (3D CNN Architecture) to Tensorflow/Keras.
